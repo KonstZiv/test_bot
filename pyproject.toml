@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "test_bot"
+version = "0.1.0"
+description = "telegram bot for testing"
+authors = ["Kostiantyn Zivenko kos.zivenko@gmail.com"]
+
+# NOTE:
+# without this explicit reference to PyPI, poetry may raise exception "PackageNotFound".
+[[tool.poetry.source]]
+name = "the_pypi"
+url = "https://pypi.org/simple"
+default = true
+
+[tool.poetry.dependencies]
+python = "^3.8"
+uvloop = "^0.17.0"
+ujson = "^5.5.0"
+aiohttp = {extras = ["speedups"], version = "^3.8.3"}
+piccolo = {extras = ["all"], version = "^0.91.0"}
+uvicorn = "^0.18.3"
+python-dotenv = "^0.21.0"
+aiogram = "*"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+mypy = "^0.982"
+flake8 = "^5.0.4"
+isort = "*"
+pydocstyle = "*"
+pylint = "*"
+pytest = "==7.*"
+pytest-cov = "*"
+pytest-mock = "*"
+coverage = "==6.*"
+autoflake = "^1.7"
+
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

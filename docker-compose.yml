@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  testbot:
+    container_name: testbot_test_bot
+    image: testbot
+    build:
+      context: .
+    environment:
+      PYTHONUNBUFFERED: 1
+      DB_HOST: service_db
+      DB_NAME: postgres
+      DB_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      BOT_TOKEN: "${BOT_TOKEN}"
+    volumes:
+      - .:/home/docker_user/app
+
+  service_db:
+    container_name: postgres_container
+    image: postgres:14
+    volumes:
+      - postgres_data:/data/postgres
+    ports:
+      - "5432:5432"
+    environment:
+      DB_NAME: postgres
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      PGDATA: /data/postgres
+
+volumes:
+  postgres_data:
