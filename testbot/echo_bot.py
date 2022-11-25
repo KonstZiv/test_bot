@@ -8,6 +8,7 @@ import os
 
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv
+from .tables import Message
 
 load_dotenv()
 
@@ -44,7 +45,20 @@ async def echo(message: types.Message):
     print(f"message.text: {message.text}")
     print(f"message.message_id: {message.message_id}")
     print(f"message.date: {message.date}")
+    print(f"message.bot: {message.bot}")
+    print(f"message.date: {message.date}")
+    print(f"message.via_bot: {message.via_bot}")
+
+
     await message.answer(message.text)
+    await Message.insert(
+        Message(
+            user_id=message.from_user["id"],
+            user_first_name=message.from_user["first_name"],
+            user_last_name=message.from_user["last_name"],
+            text=message.text
+        )
+    )
 
 
 if __name__ == '__main__':

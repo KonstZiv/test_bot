@@ -18,4 +18,4 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 COPY poetry.lock pyproject.toml ./
 RUN  poetry install --no-interaction --no-ansi
 COPY . .
-CMD ["python3", "./testbot/echo_bot.py"]
+CMD ["python3", "-m", "testbot.echo_bot"]
