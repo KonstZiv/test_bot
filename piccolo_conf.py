@@ -8,10 +8,10 @@ load_dotenv()  # take environment variables from .env
 
 DB = PostgresEngine(config={
     "database": os.environ["DB_NAME"],
-    "user":os.environ["POSTGRES_USER"],
-    "password":os.environ["POSTGRES_PASSWORD"],
-    "host":os.environ["DB_HOST"],
-    "port":os.environ["DB_PORT"],
+    "user": os.environ["POSTGRES_USER"],
+    "password": os.environ["POSTGRES_PASSWORD"],
+    "host": os.environ["DB_HOST"],
+    "port": os.environ["DB_PORT"],
 })
 
 

@@ -13,8 +13,6 @@ from .tables import Message
 load_dotenv()
 
 
-
-
 API_TOKEN = os.environ["BOT_TOKEN"]
 
 # Configure logging
@@ -36,7 +34,6 @@ async def send_welcome(message: types.Message):
     await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
 
 
-
 @dp.message_handler()
 async def echo(message: types.Message):
     # old style:
@@ -48,8 +45,6 @@ async def echo(message: types.Message):
     print(f"message.bot: {message.bot}")
     print(f"message.date: {message.date}")
     print(f"message.via_bot: {message.via_bot}")
-
-
     await message.answer(message.text)
     await Message.insert(
         Message(

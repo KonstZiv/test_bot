@@ -1,0 +1,6 @@
+GitHub Action
+    start - https://doka.guide/tools/github-actions/
+
+    ініціюючий тригери (on)
+        - https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+        

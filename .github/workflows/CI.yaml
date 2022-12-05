@@ -1,0 +1,34 @@
+name: CI - test - pytest and flake8
+
+on:
+  push:
+    branches: [**]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    name: Run flake8 and pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Poetry install
+        env:
+          POETRY_NO_INTERACTION: "1"
+          POETRY_VERSION: "1.2.0"
+        run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Python install
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: poetry
+      - name: Dependensies install
+        run: poetry install
+      - name: flake8 check
+        run: poetry run flake8
+      - name: Pytest check
+        run: poetry run pytest
+
+        
+
