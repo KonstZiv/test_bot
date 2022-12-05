@@ -2,7 +2,7 @@ name: CI - test - pytest and flake8
 
 on:
   push:
-    branches: [**]
+    branches: ["**"]
   pull_request:
     branches: [main]
 
@@ -29,6 +29,3 @@ jobs:
         run: poetry run flake8
       - name: Pytest check
         run: poetry run pytest
-
-        
-
