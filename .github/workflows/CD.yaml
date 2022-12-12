@@ -27,7 +27,9 @@ jobs:
           # passphrase
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
+            pwd
             cd ${{ secrets.PROJECT_PATH }}
+            pwd
             git pull origin main
               make down
               make build
