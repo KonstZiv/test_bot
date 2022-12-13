@@ -46,6 +46,7 @@ async def echo(message: types.Message):
     print(f"message.date: {message.date}")
     print(f"message.via_bot: {message.via_bot}")
     await message.answer(message.text)
+    await message.answer(message.text)
     await Message.insert(
         Message(
             user_id=message.from_user["id"],
